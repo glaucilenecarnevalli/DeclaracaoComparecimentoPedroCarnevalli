@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Declaração de Afastamento | Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --primary:#5b6ef5;        /* roxo-azulado moderno */
+      --primary-weak:#e5e9ff;
+      --text:#1b1f2a;
+      --muted:#6f7787;
+      --line:#e6e8ee;
+      --shadow: 0 10px 25px rgba(27,31,42,0.08);
+      --radius: 14px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* Container */
+    .wrap{
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 12px 12px 90px; /* espaço para a barra inferior fixa */
+    }
+
+    /* Barra superior estilo app */
+    .appbar{
+      position: sticky;
+      top:0;
+      z-index:10;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      padding: 12px;
+    }
+    .app-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      font-size:15px;
+    }
+    .app-title .logo{
+      width:28px; height:28px;
+      border-radius:50%;
+      background: var(--primary);
+      display:grid; place-items:center;
+      color:#fff; font-weight:800;
+    }
+    .app-sub{
+      font-size:12px;
+      color: var(--muted);
+      margin-top:4px;
+    }
+
+    /* Cartão de cabeçalho */
+    .header-card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      margin-top: 12px;
+    }
+    .row{
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+    }
+    .doc{ font-weight:800; font-size:16px; }
+    .pill{
+      background: var(--primary-weak);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 6px 10px;
+      font-size:12px; font-weight:700;
+    }
+    .code{
+      background: #f0f2ff;
+      color: #3b3f4a;
+      border-radius: 12px;
+      padding: 8px 12px;
+      display:flex; align-items:center; gap:8px;
+      font-size:13px;
+      margin-top:12px;
+    }
+    .btns{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      background:#fff;
+      border:1px solid var(--line);
+      color: var(--text);
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius: 12px;
+      font-weight:600;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    .btn.primary{
+      background: var(--primary);
+      color:#fff; border-color: transparent;
+    }
+
+    /* Título de seção */
+    .section-title{
+      margin: 18px 6px 8px;
+      color: var(--muted);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+
+    /* Cartão do item (atestado) */
+    .item-card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .item-head{
+      display:flex; align-items:center; gap:12px;
+      margin-bottom: 6px;
+    }
+    .doc-icon{
+      width:42px; height:42px; border-radius: 12px;
+      background: #eef1f7;
+      display:grid; place-items:center;
+      color: var(--primary);
+      font-weight:900;
+      font-size: 20px;
+    }
+    .item-title{ font-weight:800; font-size:15px; letter-spacing:.01em; }
+    .item-text{ margin-top:8px; line-height:1.55; font-size:14px; }
+
+    /* Barra inferior fixa simulando navegação de app */
+    .bottom-nav{
+      position: fixed;
+      bottom:0; left:0; right:0;
+      background:#fff;
+      border-top:1px solid var(--line);
+      display:flex; justify-content:space-around; align-items:center;
+      padding: 8px 10px;
+    }
+    .nav-item{
+      display:flex; flex-direction:column; align-items:center; gap:4px;
+      color: var(--muted);
+      font-size:11px;
+      text-decoration:none;
+    }
+    .nav-icon{
+      width:28px; height:28px; border-radius:8px;
+      background:#eef1f7; color:#4a5568;
+      display:grid; place-items:center; font-weight:800;
+    }
+    .nav-item.active{ color: var(--primary); }
+    .nav-item.active .nav-icon{ color:#fff; background: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <div class="appbar">
+    <div class="app-title">
+      <div class="logo">M</div>
+      <div>
+        <div>Receita / Declaração de Afastamento</div>
+        <div class="app-sub">Rua Doutor Agostinho Goulão, Corrêas – Petrópolis, RJ</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <main class="wrap">
+    <!-- Cabeçalho com médico e código -->
+    <section class="header-card" aria-label="Informações da receita">
+      <div class="row">
+        <div class="doc">Dr. LUCAS FONSECA QUEIROZ</div>
+        <div class="pill" title="Código interno">Código: nZD4pQ</div>
+      </div>
+
+      <div class="code">
+        <span>Receita enviada</span>
+        <span aria-hidden="true">•</span>
+        <span>Documento disponível</span>
+      </div>
+
+      <div class="btns">
+        #detalhesVer detalhes</a>
+        <!-- Se houver atestado.pdf na mesma pasta, este botão faz download -->
+        atestado.pdfBaixar receita</a>
+      </div>
+    </section>
+
+    <!-- Título de seção -->
+    <div class="section-title">Itens da sua receita</div>
+
+    <!-- Cartão do atestado -->
+    <section class="item-card" aria-label="Atestado médico">
+      <div class="item-head">
+        <div class="doc-icon" aria-hidden="true">📄</div>
+        <div class="item-title">ATESTADO MÉDICO</div>
+      </div>
+
+      <div class="item-text">
+        <p style="text-transform: none;">
+          ATESTO, PARA OS DEVIDOS FINS, QUE O(A) PACIENTE FOI ATENDIDO(A) NESTA DATA APRESENTANDO CRISE ALÉRGICA AGUDA, COM SINAIS COMPATÍVEIS COM CONJUNTIVITE, NECESSITANDO DE AFASTAMENTO DE SUAS ATIVIDADES POR 03 (TRÊS) DIAS, NO PERÍODO DE 05/01/2026 A 07/01/2026.
+        </p>
+        <p style="margin-top: 10px; text-transform: none;">
+          RECOMENDA-SE REPOUSO, CUIDADOS LOCAIS E ACOMPANHAMENTO CLÍNICO CONFORME EVOLUÇÃO DO QUADRO.
+        </p>
+      </div>
+    </section>
+
+    <div style="height:24px"></div>
+  </main>
+
+  <!-- Barra inferior de navegação -->
+  <nav class="bottom-nav" aria-label="Navegação inferior">
+    #
+      <div class="nav-icon">🧾</div>
+      <span>Receita</span>
+    </a>
+    #
+      <div class="nav-icon">🔒</div>
+      <span>Privacidade</span>
+    </a>
+    #
+      <div class="nav-icon">👤</div>
+      <span>Conta</span>
+    </a>
+  </nav>
+
+</body>
+</html>
